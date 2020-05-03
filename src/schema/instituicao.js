@@ -1,23 +1,18 @@
 import { Instituicao, InstituicaoTC } from '../models/instituicao'
+import { mutationObject } from './mutationObject'
+import { queryObject } from './queryObject'
+import { createQueryMutation } from './createQueryMutation'
 
-const InstituicaoQuery = {
-    instituicaoById: InstituicaoTC.getResolver('findById'),
-    instituicaoByIds: InstituicaoTC.getResolver('findByIds'),
-    instituicaoOne: InstituicaoTC.getResolver('findOne'),
-    instituicaoMany: InstituicaoTC.getResolver('findMany'),
-    instituicaoCount: InstituicaoTC.getResolver('count'),
-    instituicaoConnection: InstituicaoTC.getResolver('connection'),
-    instituicaoPagination: InstituicaoTC.getResolver('pagination'),
-}
-const InstituicaoMutation = {
-    instituicaoCreateOne: InstituicaoTC.getResolver('createOne'),
-    instituicaoCreateMany: InstituicaoTC.getResolver('createMany'),
-    instituicaoUpdateById: InstituicaoTC.getResolver('updateById'),
-    instituicaoUpdateOne: InstituicaoTC.getResolver('updateOne'),
-    instituicaoUpdateMany: InstituicaoTC.getResolver('updateMany'),
-    instituicaoRemoveById: InstituicaoTC.getResolver('removeById'),
-    instituicaoRemoveOne: InstituicaoTC.getResolver('removeOne'),
-    instituicaoRemoveMany: InstituicaoTC.getResolver('removeMany'),
-}
+const InstituicaoQuery = createQueryMutation(
+    'instituicao',
+    queryObject,
+    InstituicaoTC
+)
+
+const InstituicaoMutation = createQueryMutation(
+    'instituicao',
+    mutationObject,
+    InstituicaoTC
+)
 
 export { InstituicaoQuery, InstituicaoMutation }
