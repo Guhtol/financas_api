@@ -12,7 +12,8 @@
     "pretest": "eslint --ignore-path .gitignore .",
     "postinstall": "rm -rf dist && yarn run build",
     "lint": "yarn prettier --write --check --config ./.prettierrc \"**/*.js\" && eslint --fix ./src",
-    "release": "release-it patch --no-npm.publish"
+    "release": "release-it patch --no-npm.publish",
+    "seed": "babel src --out-dir dist && node dist/seeds/run.js"
   },
   "husky": {
     "hooks": {

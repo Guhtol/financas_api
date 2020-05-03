@@ -7,6 +7,8 @@ export const InstituicaoSchema = new Schema({
         type: String,
         required: true,
     },
+},{
+    collection:'instituicao'
 })
 
 InstituicaoSchema.plugin(timestamps)
