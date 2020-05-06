@@ -1,7 +1,5 @@
 import { Instituicao, InstituicaoTC } from '../models/instituicao'
-import { mutationObject } from './mutationObject'
-import { queryObject } from './queryObject'
-import { createQueryMutation } from './createQueryMutation'
+import { createQueryMutation, mutationObject, queryObject } from '../../core'
 
 const InstituicaoQuery = createQueryMutation(
     'instituicao',

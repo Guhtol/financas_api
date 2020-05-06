@@ -5,7 +5,7 @@ import { ApolloServer } from 'apollo-server-express'
 import mongoose, { Promise } from 'mongoose'
 
 import './utils/db'
-import schema from './schema'
+import schema from './modules/schema'
 
 dotenv.config()
 
