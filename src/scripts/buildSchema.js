@@ -3,7 +3,7 @@ import path from 'path'
 import { graphql } from 'graphql'
 import { introspectionQuery, printSchema } from 'graphql/utilities'
 
-import Schema from '../schema'
+import Schema from '../modules/schema'
 
 async function buildSchema() {
     await fs.ensureFile('../data/schema.graphql.json')
