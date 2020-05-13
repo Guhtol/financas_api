@@ -1,11 +1,14 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import { ApolloServer } from 'apollo-server-express'
+import { authentication } from './middleware/authentication'
+
 
 import mongoose, { Promise } from 'mongoose'
 
 import './utils/db'
 import schema from './modules/schema'
+import { Usuario } from './modules/usuario/models/usuario'
 
 dotenv.config()
 
@@ -18,6 +21,10 @@ const server = new ApolloServer({
     introspection: true,
     tracing: true,
     path: '/',
+    context: async ({ req }) => {
+        const usuario = await authentication(req)
+        return { req, usuario }
+    },
 })
 
 server.applyMiddleware({

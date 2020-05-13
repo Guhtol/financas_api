@@ -1,5 +1,5 @@
 import { Lancamento, LancamentoTC } from '../models/lancamento'
-import { createQueryMutation, mutationObject, queryObject } from '../../core'
+import { createQueryMutation, mutationObject, queryObject } from '../../../core'
 
 const LancamentoQuery = createQueryMutation(
     'lancamento',

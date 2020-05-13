@@ -1,5 +1,5 @@
 import { Conta, ContaTC } from '../models/conta'
-import { createQueryMutation, mutationObject, queryObject } from '../../core'
+import { createQueryMutation, mutationObject, queryObject }  from '../../../core'
 
 const ContaQuery = createQueryMutation('conta', queryObject, ContaTC)
 

@@ -2,10 +2,11 @@ import jwt from 'jsonwebtoken'
 import { Usuario } from '../models/usuario'
 import { compose } from 'ramda'
 import { schemaComposer } from 'graphql-compose'
+import { promiseError, createPromiseError } from '../../../core'
 
-const promiseError = (obj) => Promise.reject(obj)
-const createMsgError = (msg) => new Error(msg)
-const createPromiseError = compose(promiseError, createMsgError)
+// const promiseError = (obj) => Promise.reject(obj)
+// const createMsgError = (msg) => new Error(msg)
+// const createPromiseError = compose(promiseError, createMsgError)
 
 const accesToken = schemaComposer.createObjectTC({
     name: 'AccessToken',
@@ -33,7 +34,7 @@ export const signIn = {
             if (!comparePassword) return createPromiseError(msgError)
 
             const accessToken = jwt.sign(
-                { userId: user._id },
+                { userId: usuario._id },
                 process.env.JWT_SECRET,
                 { expiresIn: process.env.JWT_EXPIRATION }
             )
