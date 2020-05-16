@@ -4,9 +4,6 @@ import { compose } from 'ramda'
 import { schemaComposer } from 'graphql-compose'
 import { promiseError, createPromiseError } from '../../../core'
 
-// const promiseError = (obj) => Promise.reject(obj)
-// const createMsgError = (msg) => new Error(msg)
-// const createPromiseError = compose(promiseError, createMsgError)
 
 const accesToken = schemaComposer.createObjectTC({
     name: 'AccessToken',
